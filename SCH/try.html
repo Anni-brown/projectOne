@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emerald Schools - Awards</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #2e5d15;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: 500;
+        }
+
+        .hero {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 3rem;
+            background: radial-gradient(circle at center, #ffffff 0%, #e3fce8 100%);
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .award {
+            border: 5px solid #59b84b;
+            padding: 2rem;
+            border-radius: 20px;
+            background-color: #fff;
+            width: 40%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .award:hover {
+            transform: scale(1.05);
+        }
+
+        .award .medal {
+            font-size: 3rem;
+            color: gold;
+        }
+
+        .award h2 {
+            margin: 1rem 0 0.5rem;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .award p {
+            font-size: 1rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background-color: #2e5d15;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+            }
+
+            .award {
+                width: 80%;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-container"></div>
+
+    <section class="hero">
+        <div class="award" id="award1">
+            <div class="medal"><i class="fas fa-award"></i></div>
+            <h2>SECOND RUNNER-UP</h2>
+            <p><strong>Best Private Secondary School</strong></p>
+            <p>in Nigeria</p>
+            <p><em>2023</em></p>
+        </div>
+
+        <div class="award" id="award2">
+            <div class="medal"><i class="fas fa-medal"></i></div>
+            <h2>BEST PRIVATE SCHOOL</h2>
+            <p><strong>Senior Secondary School Category</strong></p>
+            <p>Ogun State</p>
+            <p><em>2023</em></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Emerald Schools. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Load header via AJAX
+        const headerHTML = `
+            <header>
+                <div class="logo">
+                    <img src="https://emeraldschools.org/wp-content/uploads/2021/06/cropped-logo-emerald-1-1-150x150.png" alt="Emerald Schools Logo">
+                    <h1>EMERALD SCHOOLS</h1>
+                </div>
+                <nav>
+                    <a href="#">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#schools">Schools</a>
+                    <a href="#admissions">Admissions</a>
+                    <a href="#academics">Academics</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#contact">Contacts</a>
+                </nav>
+            </header>
+        `;
+
+        document.getElementById('header-container').innerHTML = headerHTML;
+
+        // Award click interaction
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.award').forEach(award => {
+                award.addEventListener('click', () => {
+                    alert(`You clicked on: ${award.querySelector('h2').innerText}`);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
